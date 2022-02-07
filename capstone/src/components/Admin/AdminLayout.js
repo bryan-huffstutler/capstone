@@ -1,8 +1,23 @@
+import React from 'react'
+import AdminNav from './AdminNav'
+import MainView from './MainView'
+import Notifications from './Notifications'
+
 function AdminLayout() {
   return ( 
-    <>
-      ADMIN LAYOUT
-    </>
+    <div id='layout-container'>
+      <div>
+        <AdminNav />
+      </div>
+      
+      <div>
+        <MainView />
+      </div>
+
+      <div>
+        <Notifications />
+      </div>      
+    </div>
    );
 }
 

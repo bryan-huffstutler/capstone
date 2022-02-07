@@ -14,7 +14,8 @@ export default function MasterProvider(props) {
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: localStorage.getItem('token') || "",
     errMsg: '',
-    isAdmin: false
+    isAdmin: false,
+    adminMenuState: ''
   }
 
   const [master, setMasterState] = useState(initState)
@@ -37,7 +38,8 @@ export default function MasterProvider(props) {
   function login(credentials) {
     axios.post('/auth/login', credentials)
       .then(res => {
-        const { user, token} = res.data
+        console.log(res.data)
+        const { user, token } = res.data
         localStorage.setItem('token', token)
         localStorage.setItem('user', JSON.stringify(user))
         setMasterState(prevMasterState => ({
