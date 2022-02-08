@@ -7,6 +7,9 @@ const employeeSchema = new Schema({
     required: true,
     lowercase: true
   },
+  dateOfHire: {
+    type: Date
+  },
   lastName: {
     type: String,
     required: true,
@@ -25,7 +28,8 @@ const employeeSchema = new Schema({
     required: true
   },
   address: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Address",
     required: true
   },
   email: {

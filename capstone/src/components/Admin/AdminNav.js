@@ -12,7 +12,6 @@ function AdminNav() {
       <button onClick={handleMasterChange} name="adminMenuState" value="menu">Menu Items</button>
       <button onClick={handleMasterChange} name="adminMenuState" value="events">Events</button>
       <button onClick={handleMasterChange} name="adminMenuState" value="employees">Employees</button>
-      <button onClick={handleMasterChange} name="adminMenuState" value="schedule">Schedule</button>
     </div>
   );
 }

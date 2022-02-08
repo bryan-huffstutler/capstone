@@ -15,10 +15,31 @@ export default function MasterProvider(props) {
     token: localStorage.getItem('token') || "",
     errMsg: '',
     isAdmin: false,
-    adminMenuState: ''
+    adminMenuState: '',
+    adminMenuItems: [],
   }
 
   const [master, setMasterState] = useState(initState)
+
+  function addMenuItem(item) {
+    userAxios.post('admin/menu', item)
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => console.log(err))
+  }
+
+  function getMenuItems() {
+    userAxios.get('/admin/menu')
+      .then(res => {
+        console.log(res.data)
+        setMasterState(prev => ({
+          ...prev,
+          adminMenuItems: res.data
+        }))
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
 
   function signup(credentials) {
     axios.post('/auth/signup', credentials)
@@ -81,7 +102,17 @@ export default function MasterProvider(props) {
   }
 
   return (
-    <MasterContext.Provider value={{ ...master, resetAuthErr, signup, login, handleAuthErr, logout, handleMasterChange }}>
+    <MasterContext.Provider value={{
+      ...master,
+      resetAuthErr,
+      signup,
+      login,
+      handleAuthErr,
+      logout,
+      handleMasterChange,
+      getMenuItems,
+      addMenuItem
+    }}>
       {props.children}
     </MasterContext.Provider>
   )

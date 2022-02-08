@@ -28,6 +28,7 @@ connectToDB().catch((err) => console.log(err));
 app.use('/api', expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
 app.use('/auth', require('./routes/authRouter.js'))
 app.use('/admin', require('./routes/adminRouter.js'))
+app.use('/employee', require('./routes/employeeRouter.js'))
 
 //Error Handler
 app.use((err, req, res, next) => {

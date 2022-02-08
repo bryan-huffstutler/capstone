@@ -3,6 +3,7 @@ const adminRouter = express.Router()
 const Employee = require('../models/employee')
 const Event = require('../models/event')
 const MenuItem = require('../models/menu-item')
+const PtoRequest = require('../models/ptorequest')
 
 //get all employees -- TESTED GOOD
 adminRouter.get('/employees', (req, res, next) => {
@@ -62,6 +63,14 @@ adminRouter.delete('/employees/:employeeId', (req, res, next) => {
       return res.status(200).send(`Successfully deleted ${deletedEmployee} from database.`)
     }
   )
+})
+
+//Get All PTO Requests
+adminRouter.get('/ptoreqs', (req, res, next) => {
+  PtoRequest.find().then(x => {
+    res.send(x)
+    res.status(200)
+  })
 })
 
 //Get All Events -- TESTED GOOD
