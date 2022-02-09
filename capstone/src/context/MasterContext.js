@@ -21,6 +21,15 @@ export default function MasterProvider(props) {
 
   const [master, setMasterState] = useState(initState)
 
+  function submitEdit (item) {
+    
+    userAxios.put(`admin/menu/${item.id}`, item)
+    .then(res => {
+      console.log(`Successfully Edited Item`)
+    })
+    .catch(err => console.log(err))
+  }
+  
   function addMenuItem(item) {
     userAxios.post('admin/menu', item)
     .then(res => {
@@ -111,7 +120,8 @@ export default function MasterProvider(props) {
       logout,
       handleMasterChange,
       getMenuItems,
-      addMenuItem
+      addMenuItem,
+      submitEdit
     }}>
       {props.children}
     </MasterContext.Provider>

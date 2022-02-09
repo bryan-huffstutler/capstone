@@ -14,17 +14,13 @@ const initInputs = {
 function AdminMenu() {
   const { getMenuItems, adminMenuItems, addMenuItem } = useContext(MasterContext)
   const [menuState, setMenuState] = useState(initInputs)
-  const [isEditingItem, setIsEditingItem] = useState(false)
   const [addingItem, setAddingItem] = useState(false)
 
   function addItem(item) {
     addMenuItem(item)
     toggleAddingItem()
     clearState()
-  }
-//Need to write function to edit item, and pass it to modal....
-  function editItem(item){
-
+    getMenuItems()
   }
 
   function clearState(){
@@ -33,10 +29,6 @@ function AdminMenu() {
 
   function toggleAddingItem() {
     setAddingItem(() => !addingItem)
-  }
-
-  function toggleEditItem() {
-    setIsEditingItem(() => !isEditingItem)
   }
 
   function handleChange(e) {
@@ -64,7 +56,7 @@ function AdminMenu() {
         : <button onClick={toggleAddingItem}>Add Menu Item</button>}
 
 
-      <p>Click on Name to view options!</p>
+      <p>Click on Name to View Item</p>
 
       {adminMenuItems ? adminMenuItems.map(x => {
         return (
@@ -75,9 +67,7 @@ function AdminMenu() {
             name={x.name}
             description={x.description}
             price={x.price}
-            isEditing={toggleEditItem}
-            addItem={addItem}
-            handleChange={handleChange}
+            category={x.category}
           />
         )
       }) : ""}
