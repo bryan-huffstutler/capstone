@@ -5,12 +5,12 @@ import AdminEmployee from './AdminEmployee'
 
 function AdminEmployees() {
   const { getEmps, emps } = useContext(MasterContext)
-  const [employee, setEmployee] = useState({ employee: "", emp: "" })
+  const [employee, setEmployee] = useState({ employee: "", emp: []})
 
   function getAllEmployees() {
     getEmps()
   }
-  console.log(emps)
+  
   function handleSelectChange(e) {
     setEmployee(prev => ({
       ...prev,
@@ -21,11 +21,11 @@ function AdminEmployees() {
 
   function selectChange(e) {
     handleSelectChange(e)
-    filterEmps()
+    filterEmps(e.target.value)
   }
 
-  function filterEmps() {
-    let empInfo = emps.filter(x => x._id === employee.employee)
+  function filterEmps(id) {
+    let empInfo = emps.filter(x => x._id === id)
     setEmployee(prev => ({
       ...prev,
       emp: empInfo
