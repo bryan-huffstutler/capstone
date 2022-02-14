@@ -35,7 +35,7 @@ function AdminMenu() {
     const { name, value } = e.target
     setMenuState(prev => ({
       ...prev,
-      [name]: value
+      [name]: value 
     }))
   }
 
@@ -53,7 +53,7 @@ function AdminMenu() {
       </div>
 
         
-        : <button onClick={toggleAddingItem}>Add Menu Item</button>}
+        : <button onClick={toggleAddingItem}> + Menu Item</button>}
 
 
       <p>Click on Name to View Item</p>

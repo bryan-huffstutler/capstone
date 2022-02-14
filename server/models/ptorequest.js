@@ -22,6 +22,9 @@ const ptorequestSchema = new Schema({
   amount: {
     type: Number,
     required: true
+  },
+  approval: {
+    type: String
   }
 })
 

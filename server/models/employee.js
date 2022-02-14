@@ -4,32 +4,17 @@ const Schema = mongoose.Schema
 const employeeSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
-    lowercase: true
+    required: true
   },
   dateOfHire: {
     type: Date
   },
   lastName: {
     type: String,
-    required: true,
-    lowercase: true
+    required: true
   },
   phone: {
     type: Number,
-    required: true
-  },
-  vacation: {
-    type: Number,
-    required: true
-  },
-  sick: {
-    type: Number,
-    required: true
-  },
-  address: {
-    type: Schema.Types.ObjectId,
-    ref: "Address",
     required: true
   },
   email: {

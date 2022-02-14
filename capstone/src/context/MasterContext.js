@@ -17,25 +17,47 @@ export default function MasterProvider(props) {
     isAdmin: false,
     adminMenuState: '',
     adminMenuItems: [],
+    adminEvents: [],
+    emps: []
   }
 
   const [master, setMasterState] = useState(initState)
 
-  function submitEdit (item) {
-    
+  function submitEdit(item) {
+
     userAxios.put(`admin/menu/${item.id}`, item)
-    .then(res => {
-      console.log(`Successfully Edited Item`)
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        console.log(`Successfully Edited Item`)
+      })
+      .catch(err => console.log(err))
   }
-  
+
+  function getEvents() {
+    userAxios.get('/admin/event')
+      .then(res => {
+        console.log(res.data)
+        setMasterState(prev => ({
+          ...prev,
+          adminEvents: res.data
+        }))
+      })
+      .catch(err => console.log(err.response.data.errMsg))
+  }
+
   function addMenuItem(item) {
     userAxios.post('admin/menu', item)
-    .then(res => {
-      console.log(res.data)
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  function addEvent(item) {
+    userAxios.post('admin/event', item)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => console.log(err))
   }
 
   function getMenuItems() {
@@ -110,6 +132,32 @@ export default function MasterProvider(props) {
     }))
   }
 
+  function deleteEvent(id) {
+    userAxios.delete(`/admin/event/${id}`)
+      .then(res => {
+        console.log(`Successfully deleted event.`)
+      })
+      .catch(err => console.log(err))
+  }
+
+  function editEvent(item) {
+    userAxios.put(`/admin/event/${item.id}`, item)
+      .then(res => console.log("Successfully Edited."))
+      .catch(err => console.log(err))
+  }
+
+  function getEmps() {
+    userAxios.get('/admin/employees')
+      .then(res => {
+        console.log(res.data)
+        setMasterState(prev => ({
+          ...prev,
+          emps: res.data
+        }))
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <MasterContext.Provider value={{
       ...master,
@@ -121,7 +169,13 @@ export default function MasterProvider(props) {
       handleMasterChange,
       getMenuItems,
       addMenuItem,
-      submitEdit
+      submitEdit,
+      getEvents,
+      deleteEvent,
+      editEvent,
+      addEvent,
+      getEmps,
+      // getEmpPto
     }}>
       {props.children}
     </MasterContext.Provider>

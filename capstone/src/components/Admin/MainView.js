@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import { MasterContext } from '../../context/MasterContext'
 import AdminMenu from './MenuItems/AdminMenu'
-import AdminEvents from './AdminEvents'
+import AdminEvents from './Events/AdminEvents'
 import AdminEmployees from './Employees/AdminEmployees'
-import AdminSchedule from './AdminSchedule'
 import logo from '../../images/logo.svg'
 
 function MainView() {

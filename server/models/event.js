@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 const eventSchema = new Schema({
   name: {
     type: String,
-    lowercase: true,
     required: true
   },
   date: {
@@ -16,8 +15,7 @@ const eventSchema = new Schema({
     required: true
   },
   artist: {
-    type: String,
-    lowercase: true
+    type: String
   }
 })
 

@@ -32,6 +32,7 @@ function EditForm(props) {
   }
 
   function handleEditSubmit(item) {
+    
     setEdit()
     submitEdit(item)
     setInputs(()=> initInputs)

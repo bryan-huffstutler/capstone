@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram id="AjdH0zX41_i-Fe2IBkXN" name="Page-1">
-        <mxGraphModel dx="288" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+        <mxGraphModel dx="288" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="EMPLOYEE&lt;br&gt;-firstName&lt;br&gt;-lastName&lt;br&gt;-D.O.B&lt;br&gt;-SSN&lt;br&gt;-TIMEOFF&lt;br&gt;-ADDRESS&lt;br&gt;-PTO REQ&lt;br&gt;-SCHEDULE" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                <mxCell id="2" value="EMPLOYEE&lt;br&gt;-firstName&lt;br&gt;-lastName&lt;br&gt;-D.O.B&lt;br&gt;-SSN&lt;br&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="250" y="10" width="150" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="" style="endArrow=none;html=1;" parent="1" target="4" edge="1">
@@ -46,10 +46,10 @@
                 <mxCell id="16" value="MENU-ITEM&lt;br&gt;-Category&lt;br&gt;-Name&lt;br&gt;-Price&lt;br&gt;-Description&lt;br&gt;-Image ?" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="250" y="370" width="150" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="MAILING LIST&lt;br&gt;-Name&lt;br&gt;-Email" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="17" value="MAILING LIST&lt;br&gt;-Name&lt;br&gt;-Email" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="90" y="370" width="150" height="150" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="REVIEW&lt;br&gt;-Name&lt;br&gt;-Review&lt;br&gt;-Rating X/5" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="18" value="REVIEW&lt;br&gt;-Name&lt;br&gt;-Review&lt;br&gt;-Rating X/5" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="410" y="370" width="150" height="150" as="geometry"/>
                 </mxCell>
             </root>

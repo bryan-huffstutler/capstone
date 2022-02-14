@@ -4,6 +4,7 @@ const Employee = require('../models/employee')
 const Event = require('../models/event')
 const MenuItem = require('../models/menu-item')
 const PtoRequest = require('../models/ptorequest')
+const TimeOff = require('../models/timeoff')
 
 //get all employees -- TESTED GOOD
 adminRouter.get('/employees', (req, res, next) => {
@@ -70,6 +71,67 @@ adminRouter.get('/ptoreqs', (req, res, next) => {
   PtoRequest.find().then(x => {
     res.send(x)
     res.status(200)
+  })
+})
+
+//Get Single Employee PTO Requests
+adminRouter.get('/employee/ptoreqs/:empId', (req, res, next)=> {
+  PtoRequest.find({employee: req.params.empId}, (err, pto) => {
+    if(err) {
+      res.status(500)
+      return next(err)
+    }
+    return res.status(200).send(pto)
+  })
+})
+
+//Approve or Deny PTO
+adminRouter.put('/employee/ptoreqs/:ptoId', (req, res, next) => {
+  PtoRequest.findOneAndUpdate(
+    {_id: req.params.ptoId}, 
+    req.body,
+    {new: true},
+    (err, updatedPto) => {
+      if(err) {
+        res.status(500)
+        return next(err)
+      }
+      return res.status(200).send(updatedPto)
+    }
+  )
+})
+
+//Delete PTO
+adminRouter.delete('/employee/pto/:ptoId', (req, res, next) => {
+  PtoRequest.findOneAndDelete({_id: req.params.ptoId}, (err, deletedPto) => {
+    if(err){
+      res.status(500)
+      return next(err)
+    }
+    return res.status(200).send(deletedPto)
+  })
+})
+
+//Create Initial Employee Timeoff
+adminRouter.post('/ptoinitial', (req, res, next) => {
+  const newPto = new TimeOff(req.body)
+  newPto.save((err, savedPto) => {
+    if (err) {
+      res.status(500)
+      return next(err)
+    }
+    return res.status(200).send(savedPto)
+  })
+})
+
+//Get single Employee Timeoff
+adminRouter.get('/employee/pto/:empId', (req, res, next) => {
+  TimeOff.findOne({ employee: req.params.empId }, (err, pto) => {
+    if (err) {
+      res.status(500)
+      return next(err)
+    }
+    return res.status(200).send(pto)
   })
 })
 
