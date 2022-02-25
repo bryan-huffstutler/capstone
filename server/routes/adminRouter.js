@@ -5,6 +5,8 @@ const Event = require('../models/event')
 const MenuItem = require('../models/menu-item')
 const PtoRequest = require('../models/ptorequest')
 const TimeOff = require('../models/timeoff')
+const User = require('../models/user')
+const Address = require('../models/address')
 
 //get all employees -- TESTED GOOD
 adminRouter.get('/employees', (req, res, next) => {
@@ -28,6 +30,7 @@ adminRouter.get('/employees/:employeeId', (req, res, next) => {
 //Create new employee -- TESTED GOOD
 adminRouter.post('/employees', (req, res, next) => {
   const newEmployee = new Employee(req.body)
+  newEmployee.dateOfHire = new Date().toJSON().slice(0, 10).replace(/-/g, '/')
   newEmployee.save((err, savedEmployee) => {
     if (err) {
       res.status(500)
@@ -75,9 +78,9 @@ adminRouter.get('/ptoreqs', (req, res, next) => {
 })
 
 //Get Single Employee PTO Requests
-adminRouter.get('/employee/ptoreqs/:empId', (req, res, next)=> {
-  PtoRequest.find({employee: req.params.empId}, (err, pto) => {
-    if(err) {
+adminRouter.get('/employee/ptoreqs/:empId', (req, res, next) => {
+  PtoRequest.find({ employee: req.params.empId }, (err, pto) => {
+    if (err) {
       res.status(500)
       return next(err)
     }
@@ -88,11 +91,11 @@ adminRouter.get('/employee/ptoreqs/:empId', (req, res, next)=> {
 //Approve or Deny PTO
 adminRouter.put('/employee/ptoreqs/:ptoId', (req, res, next) => {
   PtoRequest.findOneAndUpdate(
-    {_id: req.params.ptoId}, 
+    { _id: req.params.ptoId },
     req.body,
-    {new: true},
+    { new: true },
     (err, updatedPto) => {
-      if(err) {
+      if (err) {
         res.status(500)
         return next(err)
       }
@@ -103,13 +106,30 @@ adminRouter.put('/employee/ptoreqs/:ptoId', (req, res, next) => {
 
 //Delete PTO
 adminRouter.delete('/employee/pto/:ptoId', (req, res, next) => {
-  PtoRequest.findOneAndDelete({_id: req.params.ptoId}, (err, deletedPto) => {
-    if(err){
+  PtoRequest.findOneAndDelete({ _id: req.params.ptoId }, (err, deletedPto) => {
+    if (err) {
       res.status(500)
       return next(err)
     }
     return res.status(200).send(deletedPto)
   })
+})
+
+
+//updated employee time off
+adminRouter.put('/employee/pto/:empId', (req, res, next) => {
+  TimeOff.findOneAndUpdate(
+    { employee: req.params.empId},
+    req.body,
+    { new: true },
+    (err, updatedPto) => {
+      if (err) {
+        res.status(500)
+        return next(err)
+      }
+      return res.status(201).send(updatedPto)
+    }
+  )
 })
 
 //Create Initial Employee Timeoff
@@ -124,15 +144,17 @@ adminRouter.post('/ptoinitial', (req, res, next) => {
   })
 })
 
-//Get single Employee Timeoff
+//Get Employees Available time off
 adminRouter.get('/employee/pto/:empId', (req, res, next) => {
-  TimeOff.findOne({ employee: req.params.empId }, (err, pto) => {
-    if (err) {
-      res.status(500)
-      return next(err)
-    }
-    return res.status(200).send(pto)
-  })
+  TimeOff.findOne(
+    { employee: req.params.empId },
+    (err, timeoff) => {
+      if (err) {
+        res.status(500)
+        return next(err)
+      }
+      res.status(200).send(timeoff)
+    })
 })
 
 //Get All Events -- TESTED GOOD
@@ -268,6 +290,28 @@ adminRouter.get('/menu/filter/:cat', (req, res, next) => {
   })
 })
 
+//Create new user info -- TESTED GOOD
+adminRouter.post('/user/creation', (req, res, next) => {
+  const newUser = new User(req.body)
+  newUser.save((err, savedUser) => {
+    if (err) {
+      res.status(500)
+      return next(err)
+    }
+    return res.status(201).send(savedUser)
+  })
+})
 
+//Create initial employee address 
+adminRouter.post('/empAddress', (req, res, next) => {
+  const newAddress = new Address(req.body)
+  newAddress.save((err, savedAddress) => {
+    if(err){
+      res.status(500)
+      return next(err)
+    }
+    res.status(200).send(savedAddress)
+  })
+})
 
 module.exports = adminRouter

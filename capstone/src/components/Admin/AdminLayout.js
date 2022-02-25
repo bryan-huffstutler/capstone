@@ -10,13 +10,13 @@ function AdminLayout() {
         <AdminNav />
       </div>
       
-      <div>
+      <div id='main-view'>
         <MainView />
       </div>
 
-      <div>
+      {/* <div> 
         <Notifications />
-      </div>      
+      </div>       */}
     </div>
    );
 }

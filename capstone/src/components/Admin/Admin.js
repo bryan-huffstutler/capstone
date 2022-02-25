@@ -14,7 +14,7 @@ function Admin() {
         })
   }
   return (
-    <div>
+    <div id='admin-background'>
       {token ? <AdminLayout /> : <Auth />}
     </div>
   );

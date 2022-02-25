@@ -7,10 +7,6 @@ const addressSchema = new Schema({
     ref: "Employee",
     required: true
   },
-  number: {
-    type: Number,
-    required: true
-  },
   street: {
     type: String,
     required: true

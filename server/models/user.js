@@ -16,6 +16,11 @@ const userSchema = new Schema({
   isAdmin: {
     type: Boolean,
     required: true
+  },
+  employee: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
   }
 })
 

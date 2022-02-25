@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import AdminEvent from './AdminEvent'
 import { MasterContext } from '../../../context/MasterContext'
 import NewEvent from './NewEvent'
@@ -42,9 +42,11 @@ function AdminEvents() {
     getEvents()
   }
 
+  useEffect(() => getAllEvents(), [])
+
   return (
     <div>
-      <button onClick={getAllEvents}>See Events</button>
+      
       <button onClick={addingEvent}> + New Event </button>
       {add ? 
       <div>
@@ -63,6 +65,7 @@ function AdminEvents() {
           date={x.date}
           time={x.time}
           artist={x.artist}
+          getEvents={getAllEvents}
         />
       })
         : ""}

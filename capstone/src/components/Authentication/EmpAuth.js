@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
-import { MasterContext } from '../../context/MasterContext'
 import AuthForm from './AuthForm'
+import { MasterContext } from '../../context/MasterContext'
 
-export default function Auth() {
+function EmpAuth() {
   const initInputs = { username: "", password: "" }
 
   const [inputs, setInputs] = useState(initInputs)
@@ -25,7 +25,7 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <div className='auth-form-container'>
-        <h1>BBs Admin Login</h1>
+        <h1>BBs Employee Login</h1>
         <AuthForm
           handleChange={handleChange}
           handleSubmit={handleLogin}
@@ -36,5 +36,7 @@ export default function Auth() {
         <br />
       </div>
     </div>
-  )
+  );
 }
+
+export default EmpAuth;

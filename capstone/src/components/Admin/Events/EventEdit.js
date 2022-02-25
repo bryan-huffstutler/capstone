@@ -32,8 +32,8 @@ function EventEdit(props) {
     console.log(item)
     setEdit()
     editEvent(item)
-    setInputs(() => initInputs)
     getEvents()
+    setInputs(() => initInputs)
   }
 
   return (
@@ -44,25 +44,25 @@ function EventEdit(props) {
           type="text"
           placeholder={name}
           value={inputs.name}
-          name="name" />
+          name="name" /><br/>
         <input
           onChange={handleChange}
           type="text"
           placeholder={date}
           value={inputs.date}
-          name="date" />
+          name="date" /><br/>
         <input
           onChange={handleChange}
           type="text"
           placeholder={time}
           value={inputs.time}
-          name="time" />
+          name="time" /><br/>
         <input
           onChange={handleChange}
           type="text"
           placeholder={artist}
           value={inputs.artist}
-          name="artist" />
+          name="artist" /><br/>
         <button onClick={() => submitEdit(inputs)}>Submit</button>
         <button onClick={setEdit}>Cancel</button>
       </form>

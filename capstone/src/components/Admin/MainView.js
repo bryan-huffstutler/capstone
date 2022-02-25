@@ -31,15 +31,17 @@ function MainView() {
     case "":
       return (
         <div>
-          <img src={logo} height="600px" width="600px" />
+          <img src={logo} />
         </div>
       )
   }
+
   return (
     <div>
-      <img src={logo} height="600px" width="600px" />
+      
     </div>
   )
+
 }
 
 export default MainView;

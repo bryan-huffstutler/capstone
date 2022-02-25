@@ -3,13 +3,13 @@ import {MasterContext} from '../../../context/MasterContext'
 import EventEdit from './EventEdit'
 
 function AdminEvent(props) {
-  const {deleteEvent, getEvents, editEvent} = useContext(MasterContext)
+  const {deleteEvent,  editEvent} = useContext(MasterContext)
   const [edit, setEdit] = useState(false)
-
+  
 
   function handleDelete() {
     deleteEvent(props.id)
-    getEvents()
+    props.getEvents()
   }
 
   function toggleEdit () {

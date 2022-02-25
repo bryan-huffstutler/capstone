@@ -1,9 +1,9 @@
 import React from 'react'
-import Auth from '../Authentication/Auth'
+import EmpAuth from '../Authentication/EmpAuth'
 
 function Protected(props) {
 
-  return props.auth ? props.comp : <Auth />
+  return props.auth ? props.comp : <EmpAuth />
 
 }
 

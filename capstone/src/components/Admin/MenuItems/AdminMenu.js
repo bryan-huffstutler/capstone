@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { MasterContext } from '../../../context/MasterContext'
 import MenuItem from './MenuItem'
 import NewMenuItem from './NewMenuItem'
@@ -20,7 +20,7 @@ function AdminMenu() {
     addMenuItem(item)
     toggleAddingItem()
     clearState()
-    getMenuItems()
+    getAllMenuItems()
   }
 
   function clearState(){
@@ -39,9 +39,17 @@ function AdminMenu() {
     }))
   }
 
+  function getAllMenuItems () {
+    getMenuItems()
+  }
+
+  useEffect(() => {
+    getAllMenuItems()
+  }, [])
+
   return (
     <div>
-      <button onClick={getMenuItems}>See all Menu Items</button>
+      
       {addingItem ?
       <div>
         <NewMenuItem 

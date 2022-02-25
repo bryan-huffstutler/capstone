@@ -14,11 +14,11 @@ export default function MasterProvider(props) {
     user: JSON.parse(localStorage.getItem('user')) || {},
     token: localStorage.getItem('token') || "",
     errMsg: '',
-    isAdmin: false,
     adminMenuState: '',
     adminMenuItems: [],
     adminEvents: [],
-    emps: []
+    emps: [],
+    empPtoReqs: []
   }
 
   const [master, setMasterState] = useState(initState)
@@ -72,6 +72,16 @@ export default function MasterProvider(props) {
       .catch(err => console.log(err.response.data.errMsg))
   }
 
+  function getPtoReqs(id) {
+    userAxios.get(`/employee/ptorequests/${id}`)
+    .then(res => {
+      setMasterState(prev => ({
+        ...prev,
+        empPtoReqs: res.data
+      }))
+    })
+  }
+
   function signup(credentials) {
     axios.post('/auth/signup', credentials)
       .then(res => {
@@ -97,8 +107,7 @@ export default function MasterProvider(props) {
         setMasterState(prevMasterState => ({
           ...prevMasterState,
           user,
-          token,
-          isAdmin: user.isAdmin
+          token
         }))
       })
       .catch(err => handleAuthErr(err.response.data.errMsg))
@@ -158,6 +167,14 @@ export default function MasterProvider(props) {
       .catch(err => console.log(err))
   }
 
+  function deletePtoReq (id) {
+    userAxios.delete(`/employee/ptorequests/${id}`)
+    .then(res => {
+      console.log(res)
+      getPtoReqs(master.user.employee)
+    })
+  }
+
   return (
     <MasterContext.Provider value={{
       ...master,
@@ -175,7 +192,8 @@ export default function MasterProvider(props) {
       editEvent,
       addEvent,
       getEmps,
-      // getEmpPto
+      getPtoReqs,
+      deletePtoReq
     }}>
       {props.children}
     </MasterContext.Provider>
