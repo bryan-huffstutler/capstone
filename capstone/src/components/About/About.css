@@ -1,0 +1,57 @@
+#about-component {
+  background-image: url("https://images.unsplash.com/photo-1555658636-6e4a36218be7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHw2Nnx8YmFyfGVufDB8fHx8MTY0NjM2MTY1MQ&ixlib=rb-1.2.1&q=80&w=1080"),
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.589));
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+#about-component > h1, h3{
+  color: #603F83;
+  text-shadow: 2px 2px 2px black;
+}
+
+p {
+  padding: 80px;
+  line-height: 1.9em;
+  letter-spacing: 0.2em;
+}
+
+#owners {
+  height: 350px;
+  display: flex;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.815);
+  padding: 80px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#mission {
+  height: 350px;
+  display: flex;
+  color: whitesmoke;
+  background-color: rgba(144, 148, 151, 0.226);
+  padding: 80px;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1495837174058-628aafc7d610?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwxMHx8Z2F0aGVyaW5nJTIwZnJpZW5kc3xlbnwwfHx8fDE2NDYzNjE5NzA&ixlib=rb-1.2.1&q=80&w=1080'),
+  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.589));
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}
+
+#contact {
+  height: 350px;
+  display: flex;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.815);
+  padding: 80px;
+  flex-direction: column;
+  justify-content: center;
+}

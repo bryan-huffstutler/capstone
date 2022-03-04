@@ -35,6 +35,7 @@ function PTORequests(props) {
 
   return ( 
     <div>
+      <h3>Time Off Requests</h3>
       {requests.map(x => {
         return <div id={x._id} key={x._id}>
           <p>Date Requested: {x.date}</p>

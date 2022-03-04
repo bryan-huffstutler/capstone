@@ -6,7 +6,7 @@ import Notifications from './Notifications'
 function AdminLayout() {
   return ( 
     <div id='layout-container'>
-      <div>
+      <div id='admin-nav'>
         <AdminNav />
       </div>
       

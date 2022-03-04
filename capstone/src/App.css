@@ -40,4 +40,13 @@
 #layout-container {
   display: grid;
   grid-template-columns: 20% 60% 20%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#admin-nav {
+  padding: 100px 30px;
+}
+
+#main-view { 
+  padding: 100px 30px;
 }

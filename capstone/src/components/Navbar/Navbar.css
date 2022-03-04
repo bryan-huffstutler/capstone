@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+  color: #603F83;
+  background-color: black;
+  padding: 10px;
+}
+
+nav > a:visited {
+  text-decoration: none;
+  color: #603F83;
+}
+
+nav > a:hover {
+  color: whitesmoke;
+}
+
+nav > a {
+  text-decoration: none;
+}

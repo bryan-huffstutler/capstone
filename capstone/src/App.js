@@ -4,7 +4,7 @@ import Protected from './components/Protected/Protected'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home/Home'
 import ErrorPage from './components/Authentication/ErrorPage'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/Navbar'
 import Admin from './components/Admin/Admin'
 import About from './components/About/About'
 import { MasterContext } from './context/MasterContext'
@@ -12,6 +12,7 @@ import AdminProtected from './components/Protected/AdminProtected'
 import EmployeeHome from './components/Employee/EmployeeHome'
 import Menu from './components/Menu/Menu'
 import Events from './components/SpecialEvents/Events'
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
 
         <Route path='*' element={<ErrorPage />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
