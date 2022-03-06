@@ -1,0 +1,16 @@
+#menu {
+  color: whitesmoke;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1527832574645-f2868a00cef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTgwOTN8MHwxfHNlYXJjaHwxOXx8cmVzdGFyYXVudHxlbnwwfHx8fDE2NDY1OTIxOTc&ixlib=rb-1.2.1&q=80&w=1080"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.678));
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#menu > h1 {
+  color: #603f83;
+  text-decoration: underline;
+  padding: 25px;
+}
