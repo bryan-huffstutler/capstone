@@ -56,6 +56,7 @@ function EmpInfo(props) {
   function getAddress(id) {
     userAxios.get(`/employee/address/${id}`)
       .then(res => {
+        console.log(res.data)
         const {
           street, city, state, zipcode
         } = res.data
@@ -70,6 +71,11 @@ function EmpInfo(props) {
       .catch(err => console.log(err))
   }
 
+  function getInfo (id) {
+    getAddress(id)
+    getEmpInfo(id)
+  }
+
   function toggleAddressEdit() {
     setToggle(prev => !toggle)
     getAddress(user.employee)
@@ -81,8 +87,7 @@ function EmpInfo(props) {
   }
 
   useEffect(() => {
-    getEmpInfo(user.employee)
-    getAddress(user.employee)
+    getInfo(user.employee)
   }, [])
 
   return (

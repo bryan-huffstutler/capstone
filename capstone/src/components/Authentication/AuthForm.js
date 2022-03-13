@@ -34,10 +34,10 @@ export default function AuthForm(props) {
         <br />
 
         <button>{btnText}</button>
-        
+
         <br />
 
-        <p style={{ backgroundColor: "#c00000", color: "#ffffff", textAlign: "center" }} >{errMsg}</p>
+        <p style={{ color: "#ffffff", textAlign: "center" }} >{errMsg}</p>
       </form>
     </div>
 

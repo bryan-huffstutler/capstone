@@ -7,7 +7,7 @@ function Footer() {
   return ( 
     <footer>
       <Link to='/login'>Employee Login</Link>
-      <img src={logo} style={{width: '75px'}}></img>
+      <img src={logo} style={{width: '50px'}}></img>
       <Link to='/admin'>Manager Login</Link>
     </footer>
    );

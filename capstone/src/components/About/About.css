@@ -14,7 +14,7 @@
   text-shadow: 2px 2px 2px black;
 }
 
-p {
+#about-component > p {
   padding: 80px;
   line-height: 1.9em;
   letter-spacing: 0.2em;
