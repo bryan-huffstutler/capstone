@@ -69,8 +69,9 @@ function MenuItem(props) {
   }
 
   return (
-    <div>
-      <button onClick={toggleModal}>{name}</button>
+    <div style={{margin: '15px'}}>
+      <h4>{name}</h4>
+      <button style={{margin: '0px 3px'}}onClick={toggleModal}>See Item</button>
 
       {edit ?
         <EditForm 
@@ -82,14 +83,13 @@ function MenuItem(props) {
           category={category}
           setEdit={editItem}
         />
-        : <button onClick={editItem}>Edit Item</button>}
+        : <button style={{margin: '0px 3px'}}onClick={editItem}>Edit Item</button>}
 
       {toggle ? <Modal toggleOpen={toggleModal}>
         <img src={image} />
         <h2>{name}</h2>
         ${price}
         <p>{description}</p>
-        <button onClick={deleteItem}>Delete Item</button>
       </Modal> : ""}
 
     </div>
