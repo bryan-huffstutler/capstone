@@ -35,16 +35,16 @@ function PTORequests(props) {
 
   return ( 
     <div>
-      <h3>Time Off Requests</h3>
+      <h4>Time Off Requests</h4>
       {requests.map(x => {
         return <div id={x._id} key={x._id}>
           <p>Date Requested: {x.date}</p>
           <p>Time of Day: {x.time}</p>
           <p>Type and Amount of Time: {x.typeOfTime}({x.amount})</p>
           <p>{x.approval == null ? "Not Seen By Manager" : x.approval}</p>
-          <button onClick={() => deny(x._id)}>Deny Request</button>
-          <button onClick={() => approve(x._id)}>Approve Request</button>
-          <button onClick={() => deletePTOReqs(x._id)}>Delete</button>
+          <button style={{margin: '5px'}} onClick={() => deny(x._id)}>Deny Request</button>
+          <button style={{margin: '5px'}} onClick={() => approve(x._id)}>Approve Request</button>
+          <button style={{margin: '5px'}} onClick={() => deletePTOReqs(x._id)}>Delete</button>
         </div>
       })}
     </div>

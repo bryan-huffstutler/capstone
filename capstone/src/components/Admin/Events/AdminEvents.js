@@ -46,7 +46,7 @@ function AdminEvents() {
 
   return (
     <div>
-      
+      <p style={{color: 'white', fontWeight: 'bold', backgroundColor: 'red', textAlign: 'center'}}>CHANGES MADE HERE REFLECT ON LIVE SITE!</p>
       <button onClick={addingEvent}> + New Event </button>
       {add ? 
       <div>

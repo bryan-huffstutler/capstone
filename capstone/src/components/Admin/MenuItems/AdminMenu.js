@@ -49,6 +49,7 @@ function AdminMenu() {
 
   return (
     <div>
+      <p style={{color: 'white', fontWeight: 'bold', backgroundColor: 'red', textAlign: 'center'}}>CHANGES MADE HERE REFLECT ON LIVE SITE!</p>
       
       {addingItem ?
       <div>
@@ -64,7 +65,6 @@ function AdminMenu() {
         : <button onClick={toggleAddingItem}> + Menu Item</button>}
 
 
-      <p>Click on Name to View Item</p>
 
       {adminMenuItems ? adminMenuItems.map(x => {
         return (

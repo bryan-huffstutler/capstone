@@ -17,7 +17,7 @@ function AdminEvent(props) {
   }
 
   return ( 
-    <div>
+    <div style={{margin: '10px'}}>
       {props.name}<br/>
       {props.date} : {props.time}<br/>
       {props.artist}

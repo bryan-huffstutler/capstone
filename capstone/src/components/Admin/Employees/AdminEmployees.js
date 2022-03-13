@@ -51,7 +51,7 @@ function AdminEmployees() {
   }, [])
 
   return (
-    <div>
+    <div style={{margin: '5px'}} >
       <button onClick={handleAdding}>+ Employee</button><br />
 
       {employee.adding ? <AddEmployee

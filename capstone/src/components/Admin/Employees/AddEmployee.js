@@ -137,41 +137,41 @@ function AddEmployee(props) {
 
         <label>
           First Name:
-          <input onChange={handleChange} required name="firstName" value={formState.firstName}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="firstName" value={formState.firstName}></input>
+        </label><br/>
         <label>
           Last Name:
-          <input onChange={handleChange} required name="lastName" value={formState.lastName}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="lastName" value={formState.lastName}></input>
+        </label><br/>
         <label>
           D.O.B:
-          <input onChange={handleChange} required name="dob" value={formState.dob}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="dob" value={formState.dob}></input>
+        </label><br/>
         <label>
           Phone:
-          <input onChange={handleChange} required name="phone" value={formState.phone}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="phone" value={formState.phone}></input>
+        </label><br/>
         <label>
           Email:
-          <input onChange={handleChange} required name="email" value={formState.email}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="email" value={formState.email}></input>
+        </label><br/>
         <label>
           SSN:
-          <input onChange={handleChange} required name="ssn" value={formState.ssn}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleChange} required name="ssn" value={formState.ssn}></input>
+        </label><br/>
 
         <h4>Address</h4>
         <label>
           Street Address:
-          <input type='text' required name='street' onChange={handleAddressChange} value={address.street}></input>
-        </label>
+          <input style={{margin: '5px'}} type='text' required name='street' onChange={handleAddressChange} value={address.street}></input>
+        </label><br/>
         <label>
           City:
-          <input type='text' required name='city' onChange={handleAddressChange} value={address.city}></input>
-        </label>
+          <input style={{margin: '5px'}} type='text' required name='city' onChange={handleAddressChange} value={address.city}></input>
+        </label><br/>
         <label>
           State:
-          <select name='state' value={address.state} onChange={handleAddressChange}>
+          <select style={{margin: '5px'}} name='state' value={address.state} onChange={handleAddressChange}>
             <option></option>
             <option value='AL'>AL</option>
             <option value='AK'>AK</option>
@@ -223,29 +223,29 @@ function AddEmployee(props) {
             <option value='WI'>WI</option>
             <option value='WY'>WY</option>
           </select>
-        </label>
+        </label><br/>
         <label>
           Zipcode:
-          <input type='number' value={address.zipcode} onChange={handleAddressChange}></input>
-        </label>
+          <input style={{margin: '5px'}} type='number' value={address.zipcode} onChange={handleAddressChange}></input>
+        </label><br/>
 
         <h4>Login Information</h4>
         <label>
           UserName:
-          <input onChange={handleUserChange} required name="username" value={formState.username}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleUserChange} required name="username" value={formState.username}></input>
+        </label><br/>
         <label>
           Password:
-          <input onChange={handleUserChange} required name="password" value={formState.password}></input>
-        </label>
+          <input style={{margin: '5px'}} onChange={handleUserChange} required name="password" value={formState.password}></input>
+        </label><br/>
         <label>
           Admin:
-          <input type="checkbox" onChange={handleCheckbox}></input>
-        </label>
+          <input style={{margin: '5px'}} type="checkbox" onChange={handleCheckbox}></input>
+        </label><br/>
 
       </form>
-      <button onClick={handleSubmit}>Submit</button>
-      <button onClick={props.adding}>Cancel</button>
+      <button style={{margin: '5px'}} onClick={handleSubmit}>Submit</button>
+      <button style={{margin: '5px'}} onClick={props.adding}>Cancel</button>
     </div>
   );
 }

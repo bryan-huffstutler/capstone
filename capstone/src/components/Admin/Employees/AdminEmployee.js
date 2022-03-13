@@ -108,9 +108,9 @@ function Employee(props) {
   }, [])
 
   return (
-    <div>
+    <div style={{margin: '5px'}} >
 
-      <div>
+      <div style={{margin: '15px'}} >
         <h2>{name}</h2>
         <button
           style={{ backgroundColor: "red", color: "white" }}
@@ -121,9 +121,9 @@ function Employee(props) {
         <h5>DOB: {dob}</h5>
       </div>
 
-      <div>
+      <div style={{margin: '15px'}} >
         {timeToggle ?
-          <div>
+          <div style={{margin: '15px'}} >
             <form>
               <label>Vacation:
                 <input type="number" onChange={handleChange} name="vacation" value={empState.vacation}></input>
@@ -140,7 +140,7 @@ function Employee(props) {
             </form>
             <button onClick={editTimeSubmit}>Submit</button>
             <button onClick={toggleTime}>Cancel</button>
-          </div> : <div>
+          </div> : <div >
             <button onClick={toggleTime}>Edit Time</button>
             <h5>Vacation: {empState.vacation}</h5>
             <h5>Sick: {empState.sick}</h5>
@@ -149,7 +149,7 @@ function Employee(props) {
       </div>
 
       {empState.ptoreqs ?
-        <div>
+        <div style={{margin: '15px'}} >
           <PTORequests getReqs={getEmpPtoReqs} requests={empState.ptoreqs} empId={id} />
         </div> : ""}
 

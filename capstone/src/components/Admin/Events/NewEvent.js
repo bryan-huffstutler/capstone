@@ -28,7 +28,7 @@ function NewEvent(props) {
           value={input.artist}
           name="artist"
           onChange={handleChange}
-          placeholder="Is there an artist?" /><br />
+          placeholder="Description" /><br />
       </form>
     </div>
   );
