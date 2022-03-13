@@ -40,31 +40,35 @@ function EventEdit(props) {
     <div>
       <form>
         <input
+          style={{ margin: '5px' }}
           onChange={handleChange}
           type="text"
           placeholder={name}
           value={inputs.name}
-          name="name" /><br/>
+          name="name" /><br />
         <input
+          style={{ margin: '5px' }}
           onChange={handleChange}
           type="text"
           placeholder={date}
           value={inputs.date}
-          name="date" /><br/>
+          name="date" /><br />
         <input
+          style={{ margin: '5px' }}
           onChange={handleChange}
           type="text"
           placeholder={time}
           value={inputs.time}
-          name="time" /><br/>
+          name="time" /><br />
         <input
+          style={{ margin: '5px' }}
           onChange={handleChange}
           type="text"
           placeholder={artist}
           value={inputs.artist}
-          name="artist" /><br/>
-        <button onClick={() => submitEdit(inputs)}>Submit</button>
-        <button onClick={setEdit}>Cancel</button>
+          name="artist" /><br />
+        <button style={{margin: '5px'}}onClick={() => submitEdit(inputs)}>Submit</button>
+        <button style={{margin: '5px'}}onClick={setEdit}>Cancel</button>
       </form>
     </div>
   );

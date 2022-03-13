@@ -18,10 +18,10 @@ function AdminEvent(props) {
 
   return ( 
     <div style={{margin: '10px'}}>
-      {props.name}<br/>
-      {props.date} : {props.time}<br/>
-      {props.artist}
-      <button onClick={handleDelete}>Delete</button>
+      Event: <strong>{props.name}</strong><br/>
+      Date and Time: {props.date} : {props.time}<br/>
+      Description: {props.artist}<br/>
+      <button style={{margin: '5px'}} onClick={handleDelete}>Delete</button>
 
       {edit ? 
       <EventEdit 
@@ -32,7 +32,7 @@ function AdminEvent(props) {
         artist={props.artist}
         setEdit={toggleEdit}
       />
-      : <button onClick={() => setEdit(() => !edit)}>Edit</button>}
+      : <button style={{margin: '5px'}} onClick={() => setEdit(() => !edit)}>Edit</button>}
 
     </div>
    );
