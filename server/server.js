@@ -11,18 +11,27 @@ const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
-
-async function connectToDB() {
-  await mongoose.connect("mongodb://localhost:27017/BBs",
-    {
+const connectDb = async () => {
+  try {
+    await mongoose.connect('mongodb://localhost:27017/BBs', {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
-    });
-  console.log("Connected to the DB");
+      useUnifiedTopology: true
+    })
+  } catch (error) {
+    console.log(error.message)
+  }
 }
-connectToDB().catch((err) => console.log(err));
+connectDb()
+// async function connectToDB() {
+//   await mongoose.connect("mongodb://localhost:27017/BBs",
+//     {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//       useCreateIndex: true,
+//     });
+//   console.log("Connected to the DB");
+// }
+// connectToDB().catch((err) => console.log(err));
 
 //Routes
 app.use('/api', expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
