@@ -1,6 +1,8 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+
+const path = require('path')
 const expressJwt = require('express-jwt')
 const morgan = require('morgan')
 const express = require('express')
@@ -39,6 +41,9 @@ app.use('/auth', require('./routes/authRouter.js'))
 app.use('/admin', require('./routes/adminRouter.js'))
 app.use('/employee', require('./routes/employeeRouter.js'))
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/client/build')))
+}
 //Error Handler
 app.use((err, req, res, next) => {
   console.log(err)
