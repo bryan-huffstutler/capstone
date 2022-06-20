@@ -64,6 +64,6 @@ app.use((err, req, res, next) => {
   return res.send({ errMsg: err.message })
 })
 
-const PORT = '5000'
 
-app.listen(`${PORT}`, () => console.log(`Server running on Port: ${PORT}`))
+
+app.listen('5000', () => console.log(`Server running on Port: 5000`))
