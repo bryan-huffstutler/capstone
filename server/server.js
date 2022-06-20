@@ -15,7 +15,7 @@ app.use(morgan('dev'))
 
 const connectDb = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/BBs', {
+    await mongoose.connect('mongodb+srv://bhuff8404:vectorkill581@cluster0.pqcmcze.mongodb.net/BBs', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
