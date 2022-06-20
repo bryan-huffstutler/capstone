@@ -42,10 +42,10 @@ app.use('/admin', require('./routes/adminRouter.js'))
 app.use('/employee', require('./routes/employeeRouter.js'))
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/client/build')))
+  app.use(express.static(path.join(__dirname, '/capstone/build')))
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'capstone', 'build', 'index.html'))
   })
 } else {
   app.get('/', (req, res) => {
