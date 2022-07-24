@@ -34,6 +34,8 @@ export default function Auth() {
           errMsg={errMsg}
         />
         <br />
+        <h3>Username: admin Password: admin</h3>
+        <p>Login in with these credentials to test out the admin panel where you can handle employees, menu items (updates to menu make live changes on the website) and more.</p>
       </div>
     </div>
   )
